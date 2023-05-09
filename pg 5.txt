@@ -1,0 +1,22 @@
+
+*******************************************************************************************************************************************************************************
+5.Write a script that takes file name from user and display all line start
+with t or T and second character must be either ‘h’ or ‘s’. (Use
+grep/sed)
+================
+OPERATING SYSTEMS
+================
+echo "Enter file name:"
+read filename
+grep "^[Tt][hs]" $filename
+
+
+
+
+*******************************************************************************************************************************************************************************
+================
+OUTPUT
+================
+Enter file name:
+demo.txt
+This is demo file.
