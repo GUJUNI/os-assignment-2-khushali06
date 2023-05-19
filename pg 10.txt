@@ -1,0 +1,59 @@
+
+*******************************************************************************************************************************************************************************
+10. Write a shell script to display list of files which can be either regular
+or directory along with number of links in ascending order of links.
+================
+OPERATING SYSTEMS
+================
+
+count_links() {
+    local num_links=$(find "$1" -mindepth 1 -maxdepth 1 | wc -l)
+    echo "$num_links"
+}
+find . -mindepth 1 -maxdepth 1 | while read file; do
+    if [[ -f "$file" || -d "$file" ]]; then
+        num_links=$(count_links "$file")
+        echo "$num_links $file"
+    fi
+done | sort -n
+
+
+
+*******************************************************************************************************************************************************************************
+================
+OUTPUT
+================
+
+0 ./03.sh
+0 ./1.c
+0 ./a1
+0 ./a1.sh
+0 ./.a1.sh.swn
+0 ./.a1.sh.swo
+0 ./.a1.sh.swp
+0 ./a.sh
+0 ./.bash_history
+0 ./.bash_logout
+0 ./.bash_profile
+0 ./.bashrc
+0 ./b.sh
+0 ./.emacs
+0 ./.gnome2
+0 ./master_file.txt
+0 ./p1.sh
+0 ./p2.sh
+0 ./p5.sh
+0 ./.p5.sh.swo
+0 ./p6.sh
+0 ./.p6.sh.swp
+0 ./prime.sh
+0 ./prog1.sh
+0 ./p.sh
+0 ./s1.sh
+0 ./s2for.sh
+0 ./s2until.sh
+0 ./text1.txt
+0 ./.viminfo
+0 ./.zshrc
+2 ./.mozilla
+3 ./.ccache
